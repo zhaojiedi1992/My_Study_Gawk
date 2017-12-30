@@ -112,7 +112,7 @@ awk的`progra`语句用单引号引起来，里面用到字符串使用双引号
 
 为了后续的实验方便，这里提供几个样例文件：
 
-    .. code-block:: bash
+.. code-block:: bash
 
     [root@centos74 test]$ cat mail-list  
     Amelia       555-5553     amelia.zodiacusque@gmail.com    F

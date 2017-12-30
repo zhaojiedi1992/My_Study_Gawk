@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>3 正则表达式</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head>
+  <body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>3 正则表达式</h1>
+<p>awk是支持正则表达式的。</p>
+<div class="section" id="id2">
+<h2>3.1 如何使用正则表达式</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39; $1 ~ /li/ {print $2}&#39;</span> mail-list
+<span class="m">555</span>-5553
+<span class="m">555</span>-6699
+</pre></div>
+</div>
+<p>这个例子就是使用了正则表达式,使用”/li/”去匹配第一个字段中包含了”li”的，然后打印出来第二个字段。</p>
+</div>
+<div class="section" id="id3">
+<h2>3.2 基础的转义符号</h2>
+<p>下面这些是c语言的风格的控制符号， bash中的echo,printf都是差不多的。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="se">\\</span>          字符“<span class="se">\”</span>
+<span class="se">\\</span>a         响铃
+<span class="se">\n</span>          新行
+<span class="se">\r</span>          回车
+<span class="se">\t</span>          水平制表符TAB
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>3.3 正则表达式元字符</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="se">\ </span>      用于转义的
+^       用于锚定行首
+$       用于锚定行尾
+.       用于单个任意字符
+<span class="o">[</span>...<span class="o">]</span>   用于匹配集合单个字符
+<span class="o">[</span>^...<span class="o">]</span>  用于匹配除了几何以外的字符
+<span class="p">|</span>       用于配合左侧，或者右侧
+<span class="o">()</span>      改变优先级的，作为一个整体
+*       前面的分组或者字符任意次数。长配合.使用
++       用于匹配前面的分组或者字符至少一次
+?       用于匹配前面的分组或者字符一次或者0次。
+<span class="o">{</span>n<span class="o">}</span>     用于匹配n次
+<span class="o">{</span>n,<span class="o">}</span>    用于匹配至少n次
+<span class="o">{</span>m,n<span class="o">}</span>   用于匹配m次到n次
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>3.4 一些中括号表达式</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>:alnum:<span class="o">]</span>   字母数字
+<span class="o">[</span>:alpha:<span class="o">]</span>   字母
+<span class="o">[</span>:blank:<span class="o">]</span>   空格和tab
+<span class="o">[</span>:cntrl:<span class="o">]</span>   控制字符
+<span class="o">[</span>:digit:<span class="o">]</span>   数字
+<span class="o">[</span>:lower:<span class="o">]</span>   小写
+<span class="o">[</span>:upper:<span class="o">]</span>   大写
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>3.5 匹配文本</h2>
+<p>使用正则去匹配文本</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;aaaabcd&quot;</span> <span class="p">|</span>awk <span class="s1">&#39;{sub(/a+/,&quot;&lt;A&gt;&quot;); print $0}&#39;</span>
+&lt;A&gt;bcd
+</pre></div>
+</div>
+<p>这个使用到了awk内置的一个函数sub行数，第一个参数是正则，第个是替换的结果。</p>
+</div>
+<div class="section" id="id7">
+<h2>3.6 使用动态的正则表达式</h2>
+<p>动态的正则表达式就是把使用的正则表达式存起来。用的使用启用即可</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;aaaabcd&quot;</span> <span class="p">|</span>awk <span class="s1">&#39;BEGIN {test_re=&quot;a+&quot;} $0 ~ test_re {print $0}&#39;</span>
+aaaabcd
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>3.7 大小写敏感匹配</h2>
+<p>正则表达式是对大小写敏感的。如果不想对敏感，可以考虑使用函数转成小写在比较，或者指定忽略大小写。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;Abc&quot;</span> <span class="p">|</span>awk <span class="s1">&#39; $0 ~ &quot;ab&quot; {print $0}&#39;</span>
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;Abc&quot;</span> <span class="p">|</span>awk <span class="s1">&#39; $0 ~ &quot;Ab&quot; {print $0}&#39;</span>
+Abc
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;Abc&quot;</span> <span class="p">|</span>awk <span class="s1">&#39; tolower($0) ~ &quot;ab&quot; {print $0}&#39;</span>
+Abc
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;Abc&quot;</span> <span class="p">|</span>awk <span class="s1">&#39;BEGIN{IGNORECASE =1 } $0 ~ &quot;ab&quot; {print $0}&#39;</span>
+Abc
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
