@@ -1,2 +1,249 @@
 4 读取输入文件
 ==================================
+
+4.1 分割输入文件
+------------------------------
+
+4.1.1 标准awk的记录分割
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+awk中默认的记录分隔符号是换行，也就是一行一个记录。如果我们不想使用默认的记录分割，可以指定RS.
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk 'BEGIN {RS="u"} NR <= 3 {print $0 }' mail-list 
+    Amelia       555-5553     amelia.zodiac
+    sq
+    e@gmail.com    F
+    Anthony      555-3412     anthony.assert
+    [root@centos74 test]$ head -n 3 mail-list 
+    Amelia       555-5553     amelia.zodiacusque@gmail.com    F
+    Anthony      555-3412     anthony.asserturo@hotmail.com   A
+    Becky        555-7685     becky.algebrarum@gmail.com      A
+
+NR<=3指定了如果当前记录数量小于等于3，RS代表记录分隔符。
+
+4.1.2 gawk记录分割使用多个分隔符
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+使用大小字母去分割一个字符串为多个记录
+
+.. code-block:: bash
+
+    [root@centos74 test]$ echo "recode 1 AAAA recode 2 BBBB recode 3" | awk 'BEGIN {RS="\n|( *[[:upper:]]+ *)"} {print $0}'
+    recode 1
+    recode 2
+    recode 3
+
+4.2 测试字段
+----------------------------------------
+
+根据某个字段去作为判定条件
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk '$1 ~ /li/ {print $0}' mail-list 
+    Amelia       555-5553     amelia.zodiacusque@gmail.com    F
+    Julie        555-6699     julie.perscrutabor@skeeve.com   F
+
+4.3 非恒定的字段个数
+---------------------------------------------
+
+awk中内置了一个变量来存储单个记录的字段个数,NF(numer of filed)。
+
+.. code-block:: bash
+
+    [root@centos74 test]$ df
+    Filesystem     1K-blocks     Used Available Use% Mounted on
+    /dev/sda3       50264616 18816916  28871316  40% /
+    devtmpfs         1001532        0   1001532   0% /dev
+    tmpfs            1015956        0   1015956   0% /dev/shm
+    tmpfs            1015956    17596    998360   2% /run
+    tmpfs            1015956        0   1015956   0% /sys/fs/cgroup
+    /dev/sda5       20027216   315120  18671712   2% /app
+    /dev/sda1         999320   192360    738148  21% /boot
+    tmpfs             203192       36    203156   1% /run/user/0
+
+    [root@centos74 test]$ df |awk '{print $NF}'
+    on
+    /
+    /dev
+    /dev/shm
+    /run
+    /sys/fs/cgroup
+    /app
+    /boot
+
+我们可以看出来。 我想去导入第二列的时候， 不用数数这是第几个。NF存储的是记录的属性个数，$NF就是最后一个属性列
+
+4.4 字段的一些运算
+---------------------------------------------
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk ' {$6 = ($5 + $4 + 20 ) * 10 ; print $6}' inventory-shipped
+
+4.5 指定字段分隔符
+---------------------------------------
+
+记录的默认分割符号是换行，字段的默认的分割符号是空格，当然也是可以修改的。
+
+4.5.1 修改字段分隔符
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+修改默认的字符分割符号
+
+.. code-block:: bash
+
+    [root@centos74 test]$ echo "a,b,c,d" | awk -F "," '{print $2}'
+    b
+    [root@centos74 test]$ echo "a,b,c,d" | awk  'BEGIN{FS=","}{print $2}'
+    b
+
+第一种方式是通过命令行参数方式设定的，简单方便。
+
+4.5.2 多个字段分割符号
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+有时候我们分割字段的时候，既想tab分割又想空格分割，可以考虑如下方案： 
+
+.. code-block:: bash
+
+    [root@centos74 test]$ echo "a,b,c d:f" |   awk 'BEGIN{FS="[ ,]" } {print "$1="$1, "$2="$2 , "$3="$3,"$4="$4}'
+    $1=a $2=b $3=c $4=d:f
+
+4.5.3 分割记录单个字符就是一个字段
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+有时候我们需要将一个单词拆成一个一个字符的。可以参考如下： 
+
+.. code-block:: bash
+
+    [root@centos74 test]$ echo "adsjfsdj" |awk 'BEGIN{FS=""} {print $1,$NF}'
+    a j
+
+4.5.4 合并所有行为但一行， 每行作为一个属性字段
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+方法比较简单就是设定字段的分隔符号为`\n`即可。
+
+4.6 读取固定宽度的数据
+----------------------------------------
+
+4.6.1 处理固定宽度的数据
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+linux下好多命令输出都是固定宽度的，比如w命令，如何提取这些数据呢？
+
+.. code-block:: bash
+
+    [root@centos74 test]$ w | awk 'BEw | awk 'BEGIN { FIELDWIDTHS="9 6 10 6 7 7 35"}
+    NR > 2 { 
+    print $1 ,$2 $5
+    }'
+    root      :0        Thu
+    root      tty2      Fri
+    root      pts/0     08:
+    root      pts/1     09:
+
+4.6.1 固定字段宽度的一些问题
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+我们固定了字段的宽度，但是输入数据刚刚好，那是非常好的， 有时候可能传过来的多了或者少了。这种情况gawk是如何处理的。
+
+**刚好的字段**
+    如果FIELDWIDTHS="2 3 4" ，输入记录是"aabbbcccc",这样的话刚刚好，$1="aa", $2="bbb",$3="cccc"
+**缺宽度的字段**
+    如果FIELDWIDTHS="2 3 4" ，输入记录是"aabbbccc",这样的话刚刚好，$1="aa", $2="bbb",$3="ccc"
+**多宽度的字段**
+    如果FIELDWIDTHS="2 3 4" ，输入记录是"aabbbccccdd",这样的话刚刚好，$1="aa", $2="bbb",$3="cccc",多余的dd就被丢弃了。如果想使用可以最后一个字段使用*代替
+
+4.7 csv文件的处理
+------------------------------------------------------
+
+这里有一个csv文件,想提取出来名字和带引号的字段。
+
+.. code-block:: bash
+
+    Robbins,Arnold,"1234 A Pretty Street, NE",MyTown,MyState,12345-6789,USA
+
+考虑到引号里面有，所以如果使用，去分割这个csv文件的时候会出错的。
+
+.. code-block:: bash
+
+    [root@centos74 test]$ vim addresses.csv 
+    [root@centos74 test]$ cat addresses.csv 
+    Robbins,Arnold,"1234 A Pretty Street, NE",MyTown,MyState,12345-6789,USA
+    [root@centos74 test]$ vim addresses.awk 
+    [root@centos74 test]$ cat addresses.awk 
+    BEGIN {
+        FPAT="([^,]+)|(\"[^\"]+\")"
+    }
+
+    {
+        print "NF=" ,NF
+        for (i=1;i <=NF; i++){
+            printf("$%d =<%s>\n" ,i,$i)
+        }
+    }
+
+    [root@centos74 test]$ gawk -f addresses.awk addresses.csv 
+    NF= 7
+    $1 =<Robbins>
+    $2 =<Arnold>
+    $3 =<"1234 A Pretty Street, NE">
+    $4 =<MyTown>
+    $5 =<MyState>
+    $6 =<12345-6789>
+    $7 =<USA>
+
+上面的为何就是可以只能的识别出双引号中的逗号呢。 关键就是EPAT的正则表达式。简单说下这个正则表达式把。 “|”跟个2个部分，第二部分代表引号开头，中间是非引号多次，最后一个引号。
+
+
+4.8 检查awk使用的字段分割方案
+------------------------------------------------
+
+上面我们提到了几种分割方案
+
+.. code-block:: bash
+
+    [root@centos74 test]$ echo "abc" |awk 'BEGIN{
+    if (PROCINFO["FS"] == "FS")
+        print "BASIC"            
+    else if (PROCINFO["FS"] == "FIELDWIDTHS")
+        print "FIELDWIDTHS"          
+    else if (PROCINFO["FS"] == "FPAT")
+        print "FPAT"                  
+    else
+        print "else"                                         
+    }'
+    BASIC
+
+4.9 提取数据从getline
+-------------------------------------
+
+4.9.1 使用getline 到一个变量中
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: bash
+
+    {
+        if ((getline tmp) > 0) {
+            print tmp
+            print $0
+        } else
+            print $0
+    }
+
+4.9.2 使用getline从一个文件来
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    {
+        if ($1 == 10) {
+            getline < "secondary.input"
+            print
+        } else
+            print
+    }
+
