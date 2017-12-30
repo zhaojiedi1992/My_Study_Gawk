@@ -158,7 +158,7 @@ awk的`progra`语句用单引号引起来，里面用到字符串使用双引号
     Julie        555-6699     julie.perscrutabor@skeeve.com   F
     Samuel       555-3430     samuel.lanceolis@shu.edu        A
 
-`/li/`是个正则表达式，默认是匹配行的，如果行满足就执行后面{}里面的代码。
+"/li/"是个正则表达式，默认是匹配行的，如果行满足就执行后面{}里面的代码。
 
 **找到行长度大于40的行，并显示长度**：
 

@@ -1,0 +1,145 @@
+5 打印输出
+====================================
+
+5.1 使用print语句
+---------------------------------------
+
+使用print比较简单，每个打印的元素用逗号分割即可。
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk '{print $1,$2}' mail-list 
+    Amelia 555-5553
+    Anthony 555-3412
+    Becky 555-7685
+    Bill 555-1675
+    Broderick 555-0542
+    Camilla 555-2912
+    Fabius 555-1234
+    Julie 555-6699
+    Martin 555-6480
+    Samuel 555-3430
+    Jean-Paul 555-2127
+
+5.2 输出分割符号
+---------------------------------------
+
+默认的输出字段分割符号是空格， 默认的输出记录分隔符是回车。
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk 'BEGIN{OFS=":" ; ORS="\n\n"}{print $1,$2}' mail-list 
+    Amelia:555-5553
+
+    Anthony:555-3412
+
+    Becky:555-7685
+
+    Bill:555-1675
+
+    Broderick:555-0542
+
+    Camilla:555-2912
+
+    Fabius:555-1234
+
+    Julie:555-6699
+
+    Martin:555-6480
+
+    Samuel:555-3430
+
+    Jean-Paul:555-2127
+
+控制输出分割符号，可以直接修改OFS(output field seprate),ORS(output field seprate)
+
+5.3 使用printf去输出
+-------------------------------------------------
+
+print打印起来有些格式控制上不是太灵活的。 这个时候就需要printf闪亮登场了。
+
+使用前有必要先给控制符号说下。 基本上和c语言的printf风格一样的。 学起来也是比较轻松的。
+
+.. code-block:: bash
+
+    %c      单个字符
+    %d      数字
+    %e      科学计数表示
+    %f      浮点数
+    %g      只能使用科学技术和通用技术表示法
+    %%      打印%
+    $s      字符串
+    -       左边对齐
+    +       正负数符号
+    0       控制前导0
+    width   控制有效位数
+    .       控制浮点精度
+
+使用样例
+
+.. code-block:: bash
+
+    [root@centos74 test]$ echo "15" | awk '{printf "%d\n",$0 }'
+    15
+    [root@centos74 test]$ echo "15" | awk '{printf "%3d\n",$0 }'
+    15
+    [root@centos74 test]$ echo "15" | awk '{printf "%+3d\n",$0 }'
+    +15
+    [root@centos74 test]$ echo "15.1" | awk '{printf "%-3.2f\n",$0 }'
+    15.10
+
+
+5.3 重定向print的结果和printf的结果
+------------------------------------------
+
+一个文件中有多个属性列，但是我指向提取部分列数据， 且单独分割到一个文件中,可以考虑如下方法。
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk '{ print $2 > "phone-list"
+    print $1 > "name-list" }' mail-list
+    [root@centos74 test]$ cat phone-list 
+    555-5553
+    555-3412
+    555-7685
+    555-1675
+    555-0542
+    555-2912
+    555-1234
+    555-6699
+    555-6480
+    555-3430
+    555-2127
+    [root@centos74 test]$ cat name-list 
+    Amelia
+    Anthony
+    Becky
+    Bill
+    Broderick
+    Camilla
+    Fabius
+    Julie
+    Martin
+    Samuel
+    Jean-Paul
+
+有时候我们使用awk提取完数据，需要借助bash去完成后续的操作。可以参考如下：
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk '{print $1 > "name.unsorted" 
+    > command = "sort -r >name.sorted"
+    > print $1 | command }' mail-list
+
+用一个变量去存储要重定向的命令。将结果管道给重定向的命令即可。
+
+5.4 指定print的输出
+------------------------------------------
+
+我们使用print,printf的时候是可以指定输出位置的， 默认是标准输出的。 
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk 'BEGIN{prinf "aaa" > "a.txt"}'
+
+
