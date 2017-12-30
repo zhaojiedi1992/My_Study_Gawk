@@ -4,14 +4,10 @@
 my_study_rst's 学习笔记
 ========================
 
-我自己对rst文档的学习笔记
-
-基础语法
-========
 
 .. toctree::
     :maxdepth: 3
-    :caption: 基础语法
+    :caption: awk语言
     :hidden:
 
     awk语言/简介
