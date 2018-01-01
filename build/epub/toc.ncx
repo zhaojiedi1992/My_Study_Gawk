@@ -16,5 +16,845 @@
       </navLabel>
       <content src="index.xhtml" />  
     </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>1 简介</text>
+      </navLabel>
+      <content src="awk语言/简介.xhtml" />  
+      <navPoint id="navPoint3" playOrder="2">
+        <navLabel>
+          <text>1 简介</text>
+        </navLabel>
+        <content src="awk语言/简介.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint4" playOrder="3">
+        <navLabel>
+          <text>1.0 关于awk语言</text>
+        </navLabel>
+        <content src="awk语言/简介.xhtml#awk" />  
+      </navPoint>
+      <navPoint id="navPoint5" playOrder="4">
+        <navLabel>
+          <text>1.1 如何运行awk</text>
+        </navLabel>
+        <content src="awk语言/简介.xhtml#id2" />  
+        <navPoint id="navPoint6" playOrder="4">
+          <navLabel>
+            <text>1.1 如何运行awk</text>
+          </navLabel>
+          <content src="awk语言/简介.xhtml#id2" />  
+        </navPoint>
+        <navPoint id="navPoint7" playOrder="5">
+          <navLabel>
+            <text>1.1.1 运行awk没有输入文件</text>
+          </navLabel>
+          <content src="awk语言/简介.xhtml#id3" />  
+        </navPoint>
+        <navPoint id="navPoint8" playOrder="6">
+          <navLabel>
+            <text>1.1.2 运行一个长命令</text>
+          </navLabel>
+          <content src="awk语言/简介.xhtml#id4" />  
+        </navPoint>
+        <navPoint id="navPoint9" playOrder="7">
+          <navLabel>
+            <text>1.1.3 执行awk脚本文件</text>
+          </navLabel>
+          <content src="awk语言/简介.xhtml#id5" />  
+        </navPoint>
+        <navPoint id="navPoint10" playOrder="8">
+          <navLabel>
+            <text>1.1.4 在awk脚本中添加注释</text>
+          </navLabel>
+          <content src="awk语言/简介.xhtml#id6" />  
+        </navPoint>
+        <navPoint id="navPoint11" playOrder="9">
+          <navLabel>
+            <text>1.1.5 shell下的引号问题</text>
+          </navLabel>
+          <content src="awk语言/简介.xhtml#shell" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint12" playOrder="10">
+        <navLabel>
+          <text>1.2 样例数据</text>
+        </navLabel>
+        <content src="awk语言/简介.xhtml#id7" />  
+      </navPoint>
+      <navPoint id="navPoint13" playOrder="11">
+        <navLabel>
+          <text>1.3 一些简单的awk使用</text>
+        </navLabel>
+        <content src="awk语言/简介.xhtml#id8" />  
+      </navPoint>
+      <navPoint id="navPoint14" playOrder="12">
+        <navLabel>
+          <text>1.4 两个规则样例</text>
+        </navLabel>
+        <content src="awk语言/简介.xhtml#id9" />  
+      </navPoint>
+      <navPoint id="navPoint15" playOrder="13">
+        <navLabel>
+          <text>1.5 关于awk语句的跨行问题</text>
+        </navLabel>
+        <content src="awk语言/简介.xhtml#id10" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint16" playOrder="14">
+      <navLabel>
+        <text>2 运行awk</text>
+      </navLabel>
+      <content src="awk语言/运行awk.xhtml" />  
+      <navPoint id="navPoint17" playOrder="14">
+        <navLabel>
+          <text>2 运行awk</text>
+        </navLabel>
+        <content src="awk语言/运行awk.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint18" playOrder="15">
+        <navLabel>
+          <text>2.1 调用awk</text>
+        </navLabel>
+        <content src="awk语言/运行awk.xhtml#id1" />  
+      </navPoint>
+      <navPoint id="navPoint19" playOrder="16">
+        <navLabel>
+          <text>2.2 命令行选项</text>
+        </navLabel>
+        <content src="awk语言/运行awk.xhtml#id2" />  
+      </navPoint>
+      <navPoint id="navPoint20" playOrder="17">
+        <navLabel>
+          <text>2.3 通过标准输出流作为awk输入</text>
+        </navLabel>
+        <content src="awk语言/运行awk.xhtml#id3" />  
+      </navPoint>
+      <navPoint id="navPoint21" playOrder="18">
+        <navLabel>
+          <text>2.3 AWK环境变量</text>
+        </navLabel>
+        <content src="awk语言/运行awk.xhtml#id4" />  
+        <navPoint id="navPoint22" playOrder="18">
+          <navLabel>
+            <text>2.3 AWK环境变量</text>
+          </navLabel>
+          <content src="awk语言/运行awk.xhtml#id4" />  
+        </navPoint>
+        <navPoint id="navPoint23" playOrder="19">
+          <navLabel>
+            <text>2.3.1 AWKPATH环境变量</text>
+          </navLabel>
+          <content src="awk语言/运行awk.xhtml#awkpath" />  
+        </navPoint>
+        <navPoint id="navPoint24" playOrder="20">
+          <navLabel>
+            <text>2.3.2 AWKLIBPATH环境变量</text>
+          </navLabel>
+          <content src="awk语言/运行awk.xhtml#awklibpath" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint25" playOrder="21">
+        <navLabel>
+          <text>2.4 awk退出码</text>
+        </navLabel>
+        <content src="awk语言/运行awk.xhtml#id5" />  
+      </navPoint>
+      <navPoint id="navPoint26" playOrder="22">
+        <navLabel>
+          <text>2.5 包含其他文件到程序中</text>
+        </navLabel>
+        <content src="awk语言/运行awk.xhtml#id6" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint27" playOrder="23">
+      <navLabel>
+        <text>3 正则表达式</text>
+      </navLabel>
+      <content src="awk语言/正则表达式.xhtml" />  
+      <navPoint id="navPoint28" playOrder="23">
+        <navLabel>
+          <text>3 正则表达式</text>
+        </navLabel>
+        <content src="awk语言/正则表达式.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint29" playOrder="24">
+        <navLabel>
+          <text>3.1 如何使用正则表达式</text>
+        </navLabel>
+        <content src="awk语言/正则表达式.xhtml#id2" />  
+      </navPoint>
+      <navPoint id="navPoint30" playOrder="25">
+        <navLabel>
+          <text>3.2 基础的转义符号</text>
+        </navLabel>
+        <content src="awk语言/正则表达式.xhtml#id3" />  
+      </navPoint>
+      <navPoint id="navPoint31" playOrder="26">
+        <navLabel>
+          <text>3.3 正则表达式元字符</text>
+        </navLabel>
+        <content src="awk语言/正则表达式.xhtml#id4" />  
+      </navPoint>
+      <navPoint id="navPoint32" playOrder="27">
+        <navLabel>
+          <text>3.4 一些中括号表达式</text>
+        </navLabel>
+        <content src="awk语言/正则表达式.xhtml#id5" />  
+      </navPoint>
+      <navPoint id="navPoint33" playOrder="28">
+        <navLabel>
+          <text>3.5 匹配文本</text>
+        </navLabel>
+        <content src="awk语言/正则表达式.xhtml#id6" />  
+      </navPoint>
+      <navPoint id="navPoint34" playOrder="29">
+        <navLabel>
+          <text>3.6 使用动态的正则表达式</text>
+        </navLabel>
+        <content src="awk语言/正则表达式.xhtml#id7" />  
+      </navPoint>
+      <navPoint id="navPoint35" playOrder="30">
+        <navLabel>
+          <text>3.7 大小写敏感匹配</text>
+        </navLabel>
+        <content src="awk语言/正则表达式.xhtml#id8" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint36" playOrder="31">
+      <navLabel>
+        <text>4 读取输入文件</text>
+      </navLabel>
+      <content src="awk语言/读取输入文件.xhtml" />  
+      <navPoint id="navPoint37" playOrder="31">
+        <navLabel>
+          <text>4 读取输入文件</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint38" playOrder="32">
+        <navLabel>
+          <text>4.1 分割输入文件</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml#id2" />  
+        <navPoint id="navPoint39" playOrder="32">
+          <navLabel>
+            <text>4.1 分割输入文件</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id2" />  
+        </navPoint>
+        <navPoint id="navPoint40" playOrder="33">
+          <navLabel>
+            <text>4.1.1 标准awk的记录分割</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#awk" />  
+        </navPoint>
+        <navPoint id="navPoint41" playOrder="34">
+          <navLabel>
+            <text>4.1.2 gawk记录分割使用多个分隔符</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#gawk" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint42" playOrder="35">
+        <navLabel>
+          <text>4.2 测试字段</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml#id3" />  
+      </navPoint>
+      <navPoint id="navPoint43" playOrder="36">
+        <navLabel>
+          <text>4.3 非恒定的字段个数</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml#id4" />  
+      </navPoint>
+      <navPoint id="navPoint44" playOrder="37">
+        <navLabel>
+          <text>4.4 字段的一些运算</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml#id5" />  
+      </navPoint>
+      <navPoint id="navPoint45" playOrder="38">
+        <navLabel>
+          <text>4.5 指定字段分隔符</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml#id6" />  
+        <navPoint id="navPoint46" playOrder="38">
+          <navLabel>
+            <text>4.5 指定字段分隔符</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id6" />  
+        </navPoint>
+        <navPoint id="navPoint47" playOrder="39">
+          <navLabel>
+            <text>4.5.1 修改字段分隔符</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id7" />  
+        </navPoint>
+        <navPoint id="navPoint48" playOrder="40">
+          <navLabel>
+            <text>4.5.2 多个字段分割符号</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id8" />  
+        </navPoint>
+        <navPoint id="navPoint49" playOrder="41">
+          <navLabel>
+            <text>4.5.3 分割记录单个字符就是一个字段</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id9" />  
+        </navPoint>
+        <navPoint id="navPoint50" playOrder="42">
+          <navLabel>
+            <text>4.5.4 合并所有行为但一行， 每行作为一个属性字段</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id10" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint51" playOrder="43">
+        <navLabel>
+          <text>4.6 读取固定宽度的数据</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml#id11" />  
+        <navPoint id="navPoint52" playOrder="43">
+          <navLabel>
+            <text>4.6 读取固定宽度的数据</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id11" />  
+        </navPoint>
+        <navPoint id="navPoint53" playOrder="44">
+          <navLabel>
+            <text>4.6.1 处理固定宽度的数据</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id12" />  
+        </navPoint>
+        <navPoint id="navPoint54" playOrder="45">
+          <navLabel>
+            <text>4.6.1 固定字段宽度的一些问题</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id13" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint55" playOrder="46">
+        <navLabel>
+          <text>4.7 csv文件的处理</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml#csv" />  
+      </navPoint>
+      <navPoint id="navPoint56" playOrder="47">
+        <navLabel>
+          <text>4.8 检查awk使用的字段分割方案</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml#id14" />  
+      </navPoint>
+      <navPoint id="navPoint57" playOrder="48">
+        <navLabel>
+          <text>4.9 提取数据从getline</text>
+        </navLabel>
+        <content src="awk语言/读取输入文件.xhtml#getline" />  
+        <navPoint id="navPoint58" playOrder="48">
+          <navLabel>
+            <text>4.9 提取数据从getline</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#getline" />  
+        </navPoint>
+        <navPoint id="navPoint59" playOrder="49">
+          <navLabel>
+            <text>4.9.1 使用getline 到一个变量中</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id15" />  
+        </navPoint>
+        <navPoint id="navPoint60" playOrder="50">
+          <navLabel>
+            <text>4.9.2 使用getline从一个文件来</text>
+          </navLabel>
+          <content src="awk语言/读取输入文件.xhtml#id16" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint61" playOrder="51">
+      <navLabel>
+        <text>5 打印输出</text>
+      </navLabel>
+      <content src="awk语言/打印输出.xhtml" />  
+      <navPoint id="navPoint62" playOrder="51">
+        <navLabel>
+          <text>5 打印输出</text>
+        </navLabel>
+        <content src="awk语言/打印输出.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint63" playOrder="52">
+        <navLabel>
+          <text>5.1 使用print语句</text>
+        </navLabel>
+        <content src="awk语言/打印输出.xhtml#print" />  
+      </navPoint>
+      <navPoint id="navPoint64" playOrder="53">
+        <navLabel>
+          <text>5.2 输出分割符号</text>
+        </navLabel>
+        <content src="awk语言/打印输出.xhtml#id2" />  
+      </navPoint>
+      <navPoint id="navPoint65" playOrder="54">
+        <navLabel>
+          <text>5.3 使用printf去输出</text>
+        </navLabel>
+        <content src="awk语言/打印输出.xhtml#printf" />  
+      </navPoint>
+      <navPoint id="navPoint66" playOrder="55">
+        <navLabel>
+          <text>5.3 重定向print的结果和printf的结果</text>
+        </navLabel>
+        <content src="awk语言/打印输出.xhtml#printprintf" />  
+      </navPoint>
+      <navPoint id="navPoint67" playOrder="56">
+        <navLabel>
+          <text>5.4 指定print的输出</text>
+        </navLabel>
+        <content src="awk语言/打印输出.xhtml#id3" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint68" playOrder="57">
+      <navLabel>
+        <text>6 表达式</text>
+      </navLabel>
+      <content src="awk语言/表达式.xhtml" />  
+      <navPoint id="navPoint69" playOrder="57">
+        <navLabel>
+          <text>6 表达式</text>
+        </navLabel>
+        <content src="awk语言/表达式.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint70" playOrder="58">
+        <navLabel>
+          <text>6.1 常量表达式</text>
+        </navLabel>
+        <content src="awk语言/表达式.xhtml#id2" />  
+        <navPoint id="navPoint71" playOrder="58">
+          <navLabel>
+            <text>6.1 常量表达式</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id2" />  
+        </navPoint>
+        <navPoint id="navPoint72" playOrder="59">
+          <navLabel>
+            <text>6.1.1 数字和字符串常量</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id3" />  
+        </navPoint>
+        <navPoint id="navPoint73" playOrder="60">
+          <navLabel>
+            <text>6.1.2 正则表达式常量</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id4" />  
+        </navPoint>
+        <navPoint id="navPoint74" playOrder="61">
+          <navLabel>
+            <text>6.1.3 自定义的变量</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id5" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint75" playOrder="62">
+        <navLabel>
+          <text>6.2 使用表示式</text>
+        </navLabel>
+        <content src="awk语言/表达式.xhtml#id6" />  
+        <navPoint id="navPoint76" playOrder="62">
+          <navLabel>
+            <text>6.2 使用表示式</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id6" />  
+        </navPoint>
+        <navPoint id="navPoint77" playOrder="63">
+          <navLabel>
+            <text>6.2.1 算数操作</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id7" />  
+        </navPoint>
+        <navPoint id="navPoint78" playOrder="64">
+          <navLabel>
+            <text>6.2.2 字符串操作</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id8" />  
+        </navPoint>
+        <navPoint id="navPoint79" playOrder="65">
+          <navLabel>
+            <text>6.2.3 赋值表达式</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id9" />  
+        </navPoint>
+        <navPoint id="navPoint80" playOrder="66">
+          <navLabel>
+            <text>6.2.4 自增表达式</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id10" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint81" playOrder="67">
+        <navLabel>
+          <text>6.3 判定表达式</text>
+        </navLabel>
+        <content src="awk语言/表达式.xhtml#id11" />  
+        <navPoint id="navPoint82" playOrder="67">
+          <navLabel>
+            <text>6.3 判定表达式</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id11" />  
+        </navPoint>
+        <navPoint id="navPoint83" playOrder="68">
+          <navLabel>
+            <text>6.3.1 字符串和数值的判定表达式</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id12" />  
+        </navPoint>
+        <navPoint id="navPoint84" playOrder="69">
+          <navLabel>
+            <text>6.3.2 比较判定表达式</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id13" />  
+        </navPoint>
+        <navPoint id="navPoint85" playOrder="70">
+          <navLabel>
+            <text>6.3.3 三目表达式</text>
+          </navLabel>
+          <content src="awk语言/表达式.xhtml#id14" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint86" playOrder="71">
+        <navLabel>
+          <text>6.4 函数</text>
+        </navLabel>
+        <content src="awk语言/表达式.xhtml#id15" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint87" playOrder="72">
+      <navLabel>
+        <text>7 模式动作和变量</text>
+      </navLabel>
+      <content src="awk语言/模式动作和变量.xhtml" />  
+      <navPoint id="navPoint88" playOrder="72">
+        <navLabel>
+          <text>7 模式动作和变量</text>
+        </navLabel>
+        <content src="awk语言/模式动作和变量.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint89" playOrder="73">
+        <navLabel>
+          <text>7.1 模式元素</text>
+        </navLabel>
+        <content src="awk语言/模式动作和变量.xhtml#id2" />  
+        <navPoint id="navPoint90" playOrder="73">
+          <navLabel>
+            <text>7.1 模式元素</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#id2" />  
+        </navPoint>
+        <navPoint id="navPoint91" playOrder="74">
+          <navLabel>
+            <text>7.1.1 正则表达式作为模式</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#id3" />  
+        </navPoint>
+        <navPoint id="navPoint92" playOrder="75">
+          <navLabel>
+            <text>7.1.2 算数表达式作为模式</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#id4" />  
+        </navPoint>
+        <navPoint id="navPoint93" playOrder="76">
+          <navLabel>
+            <text>7.1.3 BEGINFILE和ENDFILE</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#beginfileendfile" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint94" playOrder="77">
+        <navLabel>
+          <text>7.2 使用SHELL变量</text>
+        </navLabel>
+        <content src="awk语言/模式动作和变量.xhtml#shell" />  
+      </navPoint>
+      <navPoint id="navPoint95" playOrder="78">
+        <navLabel>
+          <text>7.3 动作</text>
+        </navLabel>
+        <content src="awk语言/模式动作和变量.xhtml#id5" />  
+      </navPoint>
+      <navPoint id="navPoint96" playOrder="79">
+        <navLabel>
+          <text>7.4 控制语句</text>
+        </navLabel>
+        <content src="awk语言/模式动作和变量.xhtml#id6" />  
+        <navPoint id="navPoint97" playOrder="79">
+          <navLabel>
+            <text>7.4 控制语句</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#id6" />  
+        </navPoint>
+        <navPoint id="navPoint98" playOrder="80">
+          <navLabel>
+            <text>7.4.1 if</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#if" />  
+        </navPoint>
+        <navPoint id="navPoint99" playOrder="81">
+          <navLabel>
+            <text>7.4.1 while</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#while" />  
+        </navPoint>
+        <navPoint id="navPoint100" playOrder="82">
+          <navLabel>
+            <text>7.4.1 do-while</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#do-while" />  
+        </navPoint>
+        <navPoint id="navPoint101" playOrder="83">
+          <navLabel>
+            <text>7.4.1 for</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#for" />  
+        </navPoint>
+        <navPoint id="navPoint102" playOrder="84">
+          <navLabel>
+            <text>7.4.1 switch</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#switch" />  
+        </navPoint>
+        <navPoint id="navPoint103" playOrder="85">
+          <navLabel>
+            <text>7.4.1 break</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#break" />  
+        </navPoint>
+        <navPoint id="navPoint104" playOrder="86">
+          <navLabel>
+            <text>7.4.1 continue</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#continue" />  
+        </navPoint>
+        <navPoint id="navPoint105" playOrder="87">
+          <navLabel>
+            <text>7.4.1 next</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#next" />  
+        </navPoint>
+        <navPoint id="navPoint106" playOrder="88">
+          <navLabel>
+            <text>7.4.1 nextfile</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#nextfile" />  
+        </navPoint>
+        <navPoint id="navPoint107" playOrder="89">
+          <navLabel>
+            <text>7.4.1 exit</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#exit" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint108" playOrder="90">
+        <navLabel>
+          <text>7.5 预定义的变量</text>
+        </navLabel>
+        <content src="awk语言/模式动作和变量.xhtml#id7" />  
+        <navPoint id="navPoint109" playOrder="90">
+          <navLabel>
+            <text>7.5 预定义的变量</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#id7" />  
+        </navPoint>
+        <navPoint id="navPoint110" playOrder="91">
+          <navLabel>
+            <text>7.5.1 内建控制变量</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#id8" />  
+        </navPoint>
+        <navPoint id="navPoint111" playOrder="92">
+          <navLabel>
+            <text>7.5.2 内建传递变量</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#id9" />  
+        </navPoint>
+        <navPoint id="navPoint112" playOrder="93">
+          <navLabel>
+            <text>7.5.3 使用ARGC和ARGV</text>
+          </navLabel>
+          <content src="awk语言/模式动作和变量.xhtml#argcargv" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint113" playOrder="94">
+      <navLabel>
+        <text>8 数组</text>
+      </navLabel>
+      <content src="awk语言/数组.xhtml" />  
+      <navPoint id="navPoint114" playOrder="94">
+        <navLabel>
+          <text>8 数组</text>
+        </navLabel>
+        <content src="awk语言/数组.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint115" playOrder="95">
+        <navLabel>
+          <text>8.1 数组的基本概念</text>
+        </navLabel>
+        <content src="awk语言/数组.xhtml#id2" />  
+        <navPoint id="navPoint116" playOrder="95">
+          <navLabel>
+            <text>8.1 数组的基本概念</text>
+          </navLabel>
+          <content src="awk语言/数组.xhtml#id2" />  
+        </navPoint>
+        <navPoint id="navPoint117" playOrder="96">
+          <navLabel>
+            <text>8.1.1 引用数组元素</text>
+          </navLabel>
+          <content src="awk语言/数组.xhtml#id3" />  
+        </navPoint>
+        <navPoint id="navPoint118" playOrder="97">
+          <navLabel>
+            <text>8.1.2 给数组赋值</text>
+          </navLabel>
+          <content src="awk语言/数组.xhtml#id4" />  
+        </navPoint>
+        <navPoint id="navPoint119" playOrder="98">
+          <navLabel>
+            <text>8.1.3 数组的基本使用</text>
+          </navLabel>
+          <content src="awk语言/数组.xhtml#id5" />  
+        </navPoint>
+        <navPoint id="navPoint120" playOrder="99">
+          <navLabel>
+            <text>8.1.4 数组的遍历</text>
+          </navLabel>
+          <content src="awk语言/数组.xhtml#id6" />  
+        </navPoint>
+        <navPoint id="navPoint121" playOrder="100">
+          <navLabel>
+            <text>8.1.4 数组的遍历扩展</text>
+          </navLabel>
+          <content src="awk语言/数组.xhtml#id7" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint122" playOrder="101">
+        <navLabel>
+          <text>8.3 删除数组</text>
+        </navLabel>
+        <content src="awk语言/数组.xhtml#id8" />  
+      </navPoint>
+      <navPoint id="navPoint123" playOrder="102">
+        <navLabel>
+          <text>8.3 多维数组</text>
+        </navLabel>
+        <content src="awk语言/数组.xhtml#id9" />  
+      </navPoint>
+      <navPoint id="navPoint124" playOrder="103">
+        <navLabel>
+          <text>8.4 数组中数组</text>
+        </navLabel>
+        <content src="awk语言/数组.xhtml#id10" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint125" playOrder="104">
+      <navLabel>
+        <text>9 函数</text>
+      </navLabel>
+      <content src="awk语言/函数.xhtml" />  
+      <navPoint id="navPoint126" playOrder="104">
+        <navLabel>
+          <text>9 函数</text>
+        </navLabel>
+        <content src="awk语言/函数.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint127" playOrder="105">
+        <navLabel>
+          <text>9.1 内建函数</text>
+        </navLabel>
+        <content src="awk语言/函数.xhtml#id2" />  
+        <navPoint id="navPoint128" playOrder="105">
+          <navLabel>
+            <text>9.1 内建函数</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id2" />  
+        </navPoint>
+        <navPoint id="navPoint129" playOrder="106">
+          <navLabel>
+            <text>9.1.1 调用函数</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id3" />  
+        </navPoint>
+        <navPoint id="navPoint130" playOrder="107">
+          <navLabel>
+            <text>9.1.2 数字函数</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id4" />  
+        </navPoint>
+        <navPoint id="navPoint131" playOrder="108">
+          <navLabel>
+            <text>9.1.2 字符串函数</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id5" />  
+        </navPoint>
+        <navPoint id="navPoint132" playOrder="109">
+          <navLabel>
+            <text>9.1.3 输入输出函数</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id6" />  
+        </navPoint>
+        <navPoint id="navPoint133" playOrder="110">
+          <navLabel>
+            <text>9.1.3 时间函数</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id7" />  
+        </navPoint>
+        <navPoint id="navPoint134" playOrder="111">
+          <navLabel>
+            <text>9.1.4 位操作</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id8" />  
+        </navPoint>
+        <navPoint id="navPoint135" playOrder="112">
+          <navLabel>
+            <text>9.1.5 获取类型</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id9" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint136" playOrder="113">
+        <navLabel>
+          <text>9.2 用户自定义函数</text>
+        </navLabel>
+        <content src="awk语言/函数.xhtml#id10" />  
+        <navPoint id="navPoint137" playOrder="113">
+          <navLabel>
+            <text>9.2 用户自定义函数</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id10" />  
+        </navPoint>
+        <navPoint id="navPoint138" playOrder="114">
+          <navLabel>
+            <text>9.2.1 自定义函数样例</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id11" />  
+        </navPoint>
+        <navPoint id="navPoint139" playOrder="115">
+          <navLabel>
+            <text>9.2.2 间接函数样例</text>
+          </navLabel>
+          <content src="awk语言/函数.xhtml#id12" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint140" playOrder="116">
+      <navLabel>
+        <text>1 awk库函数</text>
+      </navLabel>
+      <content src="常用问题解决/awk库函数.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint141" playOrder="117">
+      <navLabel>
+        <text>2 awk实用程序</text>
+      </navLabel>
+      <content src="常用问题解决/awk实用程序.xhtml" />  
+    </navPoint>
   </navMap>
 </ncx>
