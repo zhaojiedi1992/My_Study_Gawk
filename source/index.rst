@@ -5,6 +5,21 @@ my_study_rst's 学习笔记
 ========================
 
 
+文本处理三剑客
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+grep学习_
+
+.. _grep学习: http://my-study-grep.readthedocs.io/en/latest/
+
+sed学习_
+
+.. _sed学习: http://my-study-sed.readthedocs.io/en/latest/
+
+awk学习_
+
+.. _awk学习: http://my-study-gawk.readthedocs.io/en/latest/
+
 awk语言
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
