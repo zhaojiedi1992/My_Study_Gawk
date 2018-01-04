@@ -87,7 +87,10 @@ print打印起来有些格式控制上不是太灵活的。 这个时候就需�
     +15
     [root@centos74 test]$ echo "15.1" | awk '{printf "%-3.2f\n",$0 }'
     15.10
+    [root@centos74 test]$ echo "15.1" | awk '{printf ("%-3.2f\n",$0) }'
+    15.10
 
+上面的最后一个样例和上面的有所不同，使用了类似c的函数写法。 我个人是比较倾向与这个写法的，看着比较舒服。
 
 5.3 重定向print的结果和printf的结果
 ------------------------------------------
@@ -131,7 +134,10 @@ print打印起来有些格式控制上不是太灵活的。 这个时候就需�
     > command = "sort -r >name.sorted"
     > print $1 | command }' mail-list
 
-用一个变量去存储要重定向的命令。将结果管道给重定向的命令即可。
+    [root@centos74 test]$ awk '{print $1 > "name.unsorted" 
+    > print $1 | command }' mail-list |  sort -r >name.sorted
+
+第一种方法用一个变量去存储要重定向的命令。将结果管道给重定向的命令即可。第二种就是看起来相对更好理解一些。 我习惯第二种方法。
 
 5.4 指定print的输出
 ------------------------------------------

@@ -89,8 +89,11 @@ width   控制有效位数
 +15
 <span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;15.1&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{printf &quot;%-3.2f\n&quot;,$0 }&#39;</span>
 <span class="m">15</span>.10
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;15.1&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{printf (&quot;%-3.2f\n&quot;,$0) }&#39;</span>
+<span class="m">15</span>.10
 </pre></div>
 </div>
+<p>上面的最后一个样例和上面的有所不同，使用了类似c的函数写法。 我个人是比较倾向与这个写法的，看着比较舒服。</p>
 </div>
 <div class="section" id="printprintf">
 <h2>5.3 重定向print的结果和printf的结果</h2>
@@ -127,9 +130,12 @@ Jean-Paul
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;{print $1 &gt; &quot;name.unsorted&quot;</span>
 <span class="s1">&gt; command = &quot;sort -r &gt;name.sorted&quot;</span>
 <span class="s1">&gt; print $1 | command }&#39;</span> mail-list
+
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;{print $1 &gt; &quot;name.unsorted&quot;</span>
+<span class="s1">&gt; print $1 | command }&#39;</span> mail-list <span class="p">|</span>  sort -r &gt;name.sorted
 </pre></div>
 </div>
-<p>用一个变量去存储要重定向的命令。将结果管道给重定向的命令即可。</p>
+<p>第一种方法用一个变量去存储要重定向的命令。将结果管道给重定向的命令即可。第二种就是看起来相对更好理解一些。 我习惯第二种方法。</p>
 </div>
 <div class="section" id="id3">
 <h2>5.4 指定print的输出</h2>

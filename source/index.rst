@@ -34,9 +34,3 @@ awk学习_
     awk语言/数组
     awk语言/函数
 
-.. toctree::
-    :maxdepth: 3
-    :caption: 常用问题解决
-
-    常用问题解决/awk库函数
-    常用问题解决/awk实用程序

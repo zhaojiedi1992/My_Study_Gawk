@@ -177,7 +177,7 @@ awk的`progra`语句用单引号引起来，里面用到字符串使用双引号
     59 Samuel       555-3430     samuel.lanceolis@shu.edu        A
     59 Jean-Paul    555-2127     jeanpaul.campanorum@nyu.edu     R
 
-很不巧，上面我们的数据非常规整，长度都大于40且长度一样。
+length是awk内置的函数，计算字符串的长度的。
 
 **打印文件的偶数行**：
 
@@ -190,7 +190,7 @@ awk的`progra`语句用单引号引起来，里面用到字符串使用双引号
     Julie        555-6699     julie.perscrutabor@skeeve.com   F
     Samuel       555-3430     samuel.lanceolis@shu.edu        A
 
-我这里没有指定要打印数据， 默认是打印$0，也就是整行数据
+NR是awk内置的变量，用于代表当前处理的记录数（现在你就暂且理解为当前处理的行号吧）我这里没有指定要打印数据， 默认是打印$0，也就是整行数据
 
 1.4 两个规则样例
 -----------------------------------
@@ -221,8 +221,8 @@ awk的`progra`语句用单引号引起来，里面用到字符串使用双引号
     [root@centos74 test]$ awk 'BEGIN{print "this is a test,this is a test , this is a test \
     > this is a test " }'
     this is a test,this is a test , this is a test this is a test 
-
-对于普通的字符串需要换行的时候，我们需要添加`\`去转义回车符号。 但是对于如下字符我们没有必要去添加转义符号：
+    
+.. attention:: 对于普通的字符串需要换行的时候，我们需要添加`\`去转义回车符号。 但是对于如下字符我们没有必要去添加转义符号：
 
 .. code-block:: bash
 

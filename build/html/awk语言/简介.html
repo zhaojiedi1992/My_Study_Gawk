@@ -117,11 +117,6 @@
 <li class="toctree-l1"><a class="reference internal" href="数组.html">8 数组</a></li>
 <li class="toctree-l1"><a class="reference internal" href="函数.html">9 函数</a></li>
 </ul>
-<p class="caption"><span class="caption-text">常用问题解决</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../常用问题解决/awk库函数.html">1 awk库函数</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../常用问题解决/awk实用程序.html">2 awk实用程序</a></li>
-</ul>
 
             
           
@@ -336,7 +331,7 @@ Samuel       <span class="m">555</span>-3430     samuel.lanceolis@shu.edu       
 <span class="m">59</span> Jean-Paul    <span class="m">555</span>-2127     jeanpaul.campanorum@nyu.edu     R
 </pre></div>
 </div>
-<p>很不巧，上面我们的数据非常规整，长度都大于40且长度一样。</p>
+<p>length是awk内置的函数，计算字符串的长度的。</p>
 <p><strong>打印文件的偶数行</strong>：</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;NR % 2 == 0&#39;</span> mail-list
 Anthony      <span class="m">555</span>-3412     anthony.asserturo@hotmail.com   A
@@ -346,7 +341,7 @@ Julie        <span class="m">555</span>-6699     julie.perscrutabor@skeeve.com  
 Samuel       <span class="m">555</span>-3430     samuel.lanceolis@shu.edu        A
 </pre></div>
 </div>
-<p>我这里没有指定要打印数据， 默认是打印$0，也就是整行数据</p>
+<p>NR是awk内置的变量，用于代表当前处理的记录数（现在你就暂且理解为当前处理的行号吧）我这里没有指定要打印数据， 默认是打印$0，也就是整行数据</p>
 </div>
 <div class="section" id="id9">
 <h2>1.4 两个规则样例<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
@@ -372,7 +367,10 @@ Apr  <span class="m">21</span>  <span class="m">70</span>  <span class="m">74</s
 this is a test,this is a <span class="nb">test</span> , this is a <span class="nb">test</span> this is a <span class="nb">test</span>
 </pre></div>
 </div>
-<p>对于普通的字符串需要换行的时候，我们需要添加``去转义回车符号。 但是对于如下字符我们没有必要去添加转义符号：</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">对于普通的字符串需要换行的时候，我们需要添加``去转义回车符号。 但是对于如下字符我们没有必要去添加转义符号：</p>
+</div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>,    <span class="o">{</span>    ?    :    <span class="o">||</span>    <span class="o">&amp;&amp;</span>    <span class="k">do</span>    <span class="k">else</span>
 </pre></div>
 </div>

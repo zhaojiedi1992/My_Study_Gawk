@@ -12,8 +12,8 @@
     <dc:publisher>unknown</dc:publisher>
     <dc:rights>2017, zhaojiedi1992</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2018-01-01T13:27:52Z</dc:date>
-    <meta property="dcterms:modified">2018-01-01T13:27:52Z</meta>
+    <dc:date>2018-01-04T15:30:31Z</dc:date>
+    <meta property="dcterms:modified">2018-01-04T15:30:31Z</meta>
     <meta property="ibooks:version">v0.1</meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -61,9 +61,9 @@
     <itemref idref="epub-5" />
     <itemref idref="epub-4" />
     <itemref idref="epub-2" />
-    <itemref idref="epub-26" />
-    <itemref idref="epub-25" />
     <itemref idref="epub-0" />
+    <itemref idref="epub-25" linear="no" />
+    <itemref idref="epub-26" linear="no" />
   </spine>
   <guide>
     <reference type="toc" title="Table of Contents" href="index.xhtml" />

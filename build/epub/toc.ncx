@@ -259,78 +259,78 @@
         <navLabel>
           <text>4.2 测试字段</text>
         </navLabel>
-        <content src="awk语言/读取输入文件.xhtml#id3" />  
+        <content src="awk语言/读取输入文件.xhtml#id5" />  
       </navPoint>
       <navPoint id="navPoint43" playOrder="36">
         <navLabel>
           <text>4.3 非恒定的字段个数</text>
         </navLabel>
-        <content src="awk语言/读取输入文件.xhtml#id4" />  
+        <content src="awk语言/读取输入文件.xhtml#id6" />  
       </navPoint>
       <navPoint id="navPoint44" playOrder="37">
         <navLabel>
           <text>4.4 字段的一些运算</text>
         </navLabel>
-        <content src="awk语言/读取输入文件.xhtml#id5" />  
+        <content src="awk语言/读取输入文件.xhtml#id7" />  
       </navPoint>
       <navPoint id="navPoint45" playOrder="38">
         <navLabel>
           <text>4.5 指定字段分隔符</text>
         </navLabel>
-        <content src="awk语言/读取输入文件.xhtml#id6" />  
+        <content src="awk语言/读取输入文件.xhtml#id8" />  
         <navPoint id="navPoint46" playOrder="38">
           <navLabel>
             <text>4.5 指定字段分隔符</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id6" />  
+          <content src="awk语言/读取输入文件.xhtml#id8" />  
         </navPoint>
         <navPoint id="navPoint47" playOrder="39">
           <navLabel>
             <text>4.5.1 修改字段分隔符</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id7" />  
+          <content src="awk语言/读取输入文件.xhtml#id9" />  
         </navPoint>
         <navPoint id="navPoint48" playOrder="40">
           <navLabel>
             <text>4.5.2 多个字段分割符号</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id8" />  
+          <content src="awk语言/读取输入文件.xhtml#id10" />  
         </navPoint>
         <navPoint id="navPoint49" playOrder="41">
           <navLabel>
             <text>4.5.3 分割记录单个字符就是一个字段</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id9" />  
+          <content src="awk语言/读取输入文件.xhtml#id11" />  
         </navPoint>
         <navPoint id="navPoint50" playOrder="42">
           <navLabel>
             <text>4.5.4 合并所有行为但一行， 每行作为一个属性字段</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id10" />  
+          <content src="awk语言/读取输入文件.xhtml#id12" />  
         </navPoint>
       </navPoint>
       <navPoint id="navPoint51" playOrder="43">
         <navLabel>
           <text>4.6 读取固定宽度的数据</text>
         </navLabel>
-        <content src="awk语言/读取输入文件.xhtml#id11" />  
+        <content src="awk语言/读取输入文件.xhtml#id13" />  
         <navPoint id="navPoint52" playOrder="43">
           <navLabel>
             <text>4.6 读取固定宽度的数据</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id11" />  
+          <content src="awk语言/读取输入文件.xhtml#id13" />  
         </navPoint>
         <navPoint id="navPoint53" playOrder="44">
           <navLabel>
             <text>4.6.1 处理固定宽度的数据</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id12" />  
+          <content src="awk语言/读取输入文件.xhtml#id14" />  
         </navPoint>
         <navPoint id="navPoint54" playOrder="45">
           <navLabel>
             <text>4.6.1 固定字段宽度的一些问题</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id13" />  
+          <content src="awk语言/读取输入文件.xhtml#id15" />  
         </navPoint>
       </navPoint>
       <navPoint id="navPoint55" playOrder="46">
@@ -343,7 +343,7 @@
         <navLabel>
           <text>4.8 检查awk使用的字段分割方案</text>
         </navLabel>
-        <content src="awk语言/读取输入文件.xhtml#id14" />  
+        <content src="awk语言/读取输入文件.xhtml#id16" />  
       </navPoint>
       <navPoint id="navPoint57" playOrder="48">
         <navLabel>
@@ -360,13 +360,13 @@
           <navLabel>
             <text>4.9.1 使用getline 到一个变量中</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id15" />  
+          <content src="awk语言/读取输入文件.xhtml#id17" />  
         </navPoint>
         <navPoint id="navPoint60" playOrder="50">
           <navLabel>
             <text>4.9.2 使用getline从一个文件来</text>
           </navLabel>
-          <content src="awk语言/读取输入文件.xhtml#id16" />  
+          <content src="awk语言/读取输入文件.xhtml#id18" />  
         </navPoint>
       </navPoint>
     </navPoint>
@@ -843,18 +843,6 @@
           <content src="awk语言/函数.xhtml#id12" />  
         </navPoint>
       </navPoint>
-    </navPoint>
-    <navPoint id="navPoint140" playOrder="116">
-      <navLabel>
-        <text>1 awk库函数</text>
-      </navLabel>
-      <content src="常用问题解决/awk库函数.xhtml" />  
-    </navPoint>
-    <navPoint id="navPoint141" playOrder="117">
-      <navLabel>
-        <text>2 awk实用程序</text>
-      </navLabel>
-      <content src="常用问题解决/awk实用程序.xhtml" />  
     </navPoint>
   </navMap>
 </ncx>

@@ -101,26 +101,26 @@
 <li class="toctree-l3"><a class="reference internal" href="#gawk">4.1.2 gawk记录分割使用多个分隔符</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">4.2 测试字段</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">4.3 非恒定的字段个数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">4.4 字段的一些运算</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">4.5 指定字段分隔符</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id7">4.5.1 修改字段分隔符</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">4.5.2 多个字段分割符号</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">4.5.3 分割记录单个字符就是一个字段</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">4.5.4 合并所有行为但一行， 每行作为一个属性字段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">4.2 测试字段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">4.3 非恒定的字段个数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">4.4 字段的一些运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">4.5 指定字段分隔符</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">4.5.1 修改字段分隔符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">4.5.2 多个字段分割符号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">4.5.3 分割记录单个字符就是一个字段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">4.5.4 合并所有行为但一行， 每行作为一个属性字段</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">4.6 读取固定宽度的数据</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">4.6.1 处理固定宽度的数据</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">4.6.1 固定字段宽度的一些问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">4.6 读取固定宽度的数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">4.6.1 处理固定宽度的数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">4.6.1 固定字段宽度的一些问题</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#csv">4.7 csv文件的处理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">4.8 检查awk使用的字段分割方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">4.8 检查awk使用的字段分割方案</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getline">4.9 提取数据从getline</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id15">4.9.1 使用getline 到一个变量中</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id16">4.9.2 使用getline从一个文件来</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">4.9.1 使用getline 到一个变量中</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">4.9.2 使用getline从一个文件来</a></li>
 </ul>
 </li>
 </ul>
@@ -130,11 +130,6 @@
 <li class="toctree-l1"><a class="reference internal" href="模式动作和变量.html">7 模式动作和变量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="数组.html">8 数组</a></li>
 <li class="toctree-l1"><a class="reference internal" href="函数.html">9 函数</a></li>
-</ul>
-<p class="caption"><span class="caption-text">常用问题解决</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../常用问题解决/awk库函数.html">1 awk库函数</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../常用问题解决/awk实用程序.html">2 awk实用程序</a></li>
 </ul>
 
             
@@ -227,10 +222,11 @@ recode <span class="m">2</span>
 recode <span class="m">3</span>
 </pre></div>
 </div>
+<p>这个正则表达式简单说下，<a href="#id3"><span class="problematic" id="id4">|</span></a>分割2个部分。表示2个都是可以匹配的，左侧匹配的是换行， 后边的少复杂，匹配那些空格多次（含0次）然后是一堆的大写字母（至少一次）后面是空格多次（含0次）。</p>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>4.2 测试字段<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>4.2 测试字段<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>根据某个字段去作为判定条件</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;$1 ~ /li/ {print $0}&#39;</span> mail-list
 Amelia       <span class="m">555</span>-5553     amelia.zodiacusque@gmail.com    F
@@ -238,8 +234,8 @@ Julie        <span class="m">555</span>-6699     julie.perscrutabor@skeeve.com  
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>4.3 非恒定的字段个数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>4.3 非恒定的字段个数<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>awk中内置了一个变量来存储单个记录的字段个数,NF(numer of filed)。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ df
 Filesystem     1K-blocks     Used Available Use% Mounted on
@@ -265,17 +261,17 @@ on
 </div>
 <p>我们可以看出来。 我想去导入第二列的时候， 不用数数这是第几个。NF存储的是记录的属性个数，$NF就是最后一个属性列</p>
 </div>
-<div class="section" id="id5">
-<h2>4.4 字段的一些运算<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>4.4 字段的一些运算<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39; {$6 = ($5 + $4 + 20 ) * 10 ; print $6}&#39;</span> inventory-shipped
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>4.5 指定字段分隔符<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>4.5 指定字段分隔符<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <p>记录的默认分割符号是换行，字段的默认的分割符号是空格，当然也是可以修改的。</p>
-<div class="section" id="id7">
-<h3>4.5.1 修改字段分隔符<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>4.5.1 修改字段分隔符<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>修改默认的字符分割符号</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;a,b,c,d&quot;</span> <span class="p">|</span> awk -F <span class="s2">&quot;,&quot;</span> <span class="s1">&#39;{print $2}&#39;</span>
 b
@@ -285,45 +281,49 @@ b
 </div>
 <p>第一种方式是通过命令行参数方式设定的，简单方便。</p>
 </div>
-<div class="section" id="id8">
-<h3>4.5.2 多个字段分割符号<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<p>有时候我们分割字段的时候，既想tab分割又想空格分割，可以考虑如下方案：</p>
+<div class="section" id="id10">
+<h3>4.5.2 多个字段分割符号<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>有时候我们分割字段的时候，既想“，”分割又想空格分割，可以考虑如下方案：</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;a,b,c d:f&quot;</span> <span class="p">|</span>   awk <span class="s1">&#39;BEGIN{FS=&quot;[ ,]&quot; } {print &quot;$1=&quot;$1, &quot;$2=&quot;$2 , &quot;$3=&quot;$3,&quot;$4=&quot;$4}&#39;</span>
 <span class="nv">$1</span><span class="o">=</span>a <span class="nv">$2</span><span class="o">=</span>b <span class="nv">$3</span><span class="o">=</span>c <span class="nv">$4</span><span class="o">=</span>d:f
 </pre></div>
 </div>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">上面的那个[]里面第一个是空白符号，第一个是逗号。</p>
 </div>
-<div class="section" id="id9">
-<h3>4.5.3 分割记录单个字符就是一个字段<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id11">
+<h3>4.5.3 分割记录单个字符就是一个字段<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>有时候我们需要将一个单词拆成一个一个字符的。可以参考如下：</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;adsjfsdj&quot;</span> <span class="p">|</span>awk <span class="s1">&#39;BEGIN{FS=&quot;&quot;} {print $1,$NF}&#39;</span>
 a j
 </pre></div>
 </div>
 </div>
-<div class="section" id="id10">
-<h3>4.5.4 合并所有行为但一行， 每行作为一个属性字段<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<p>方法比较简单就是设定字段的分隔符号为`n`即可。</p>
-</div>
-</div>
-<div class="section" id="id11">
-<h2>4.6 读取固定宽度的数据<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id12">
-<h3>4.6.1 处理固定宽度的数据<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
-<p>linux下好多命令输出都是固定宽度的，比如w命令，如何提取这些数据呢？</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>[root@centos74 test]$ w | awk &#39;BEw | awk &#39;BEGIN { FIELDWIDTHS=&quot;9 6 10 6 7 7 35&quot;}
-NR &gt; 2 {
-print $1 ,$2 $5
-}&#39;
-root      :0        Thu
-root      tty2      Fri
-root      pts/0     08:
-root      pts/1     09:
-</pre></div>
+<h3>4.5.4 合并所有行为但一行， 每行作为一个属性字段<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>方法比较简单就是设定字段的分隔符号为’n’即可。</p>
 </div>
 </div>
 <div class="section" id="id13">
-<h3>4.6.1 固定字段宽度的一些问题<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h2>4.6 读取固定宽度的数据<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>4.6.1 处理固定宽度的数据<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>linux下好多命令输出都是固定宽度的，比如w命令，如何提取这些数据呢？</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ w  <span class="p">|</span> awk <span class="s1">&#39;BEGIN { FIELDWIDTHS=&quot;9 6 10 6 7 7 35&quot;}</span>
+<span class="s1">NR &gt; 2 {</span>
+<span class="s1">print $1 ,$2 $5</span>
+<span class="s1">}&#39;</span>
+root      :0        Thu
+root      tty2      Fri
+root      pts/0     <span class="m">08</span>:
+root      pts/1     <span class="m">09</span>:
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h3>4.6.1 固定字段宽度的一些问题<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <p>我们固定了字段的宽度，但是输入数据刚刚好，那是非常好的， 有时候可能传过来的多了或者少了。这种情况gawk是如何处理的。</p>
 <dl class="docutils">
 <dt><strong>刚好的字段</strong></dt>
@@ -341,7 +341,7 @@ root      pts/1     09:
 <div class="highlight-bash"><div class="highlight"><pre><span></span>Robbins,Arnold,<span class="s2">&quot;1234 A Pretty Street, NE&quot;</span>,MyTown,MyState,12345-6789,USA
 </pre></div>
 </div>
-<p>考虑到引号里面有，所以如果使用，去分割这个csv文件的时候会出错的。</p>
+<p>考虑到引号里面有逗号， 所以如果直接使用逗号分割，那么信息会被拆分的。 不能有效提取数据的。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ vim addresses.csv
 <span class="o">[</span>root@centos74 test<span class="o">]</span>$ cat addresses.csv
 Robbins,Arnold,<span class="s2">&quot;1234 A Pretty Street, NE&quot;</span>,MyTown,MyState,12345-6789,USA
@@ -369,10 +369,10 @@ BEGIN <span class="o">{</span>
 <span class="nv">$7</span> <span class="o">=</span>&lt;USA&gt;
 </pre></div>
 </div>
-<p>上面的为何就是可以只能的识别出双引号中的逗号呢。 关键就是EPAT的正则表达式。简单说下这个正则表达式把。 “|”跟个2个部分，第二部分代表引号开头，中间是非引号多次，最后一个引号。</p>
+<p>上面的为何就是可以只能的识别出双引号中的逗号呢。 关键就是EPAT的正则表达式。简单说下这个正则表达式把。 “|”分割左右2个部分，第二部分代表引号开头，中间是非引号多次，最后一个引号。</p>
 </div>
-<div class="section" id="id14">
-<h2>4.8 检查awk使用的字段分割方案<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h2>4.8 检查awk使用的字段分割方案<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
 <p>上面我们提到了几种分割方案</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;abc&quot;</span> <span class="p">|</span>awk <span class="s1">&#39;BEGIN{</span>
 <span class="s1">if (PROCINFO[&quot;FS&quot;] == &quot;FS&quot;)</span>
@@ -390,8 +390,8 @@ BASIC
 </div>
 <div class="section" id="getline">
 <h2>4.9 提取数据从getline<a class="headerlink" href="#getline" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id15">
-<h3>4.9.1 使用getline 到一个变量中<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>4.9.1 使用getline 到一个变量中<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">{</span>
     <span class="k">if</span> <span class="o">((</span>getline tmp<span class="o">)</span> &gt; <span class="m">0</span><span class="o">)</span> <span class="o">{</span>
         print tmp
@@ -402,8 +402,8 @@ BASIC
 </pre></div>
 </div>
 </div>
-<div class="section" id="id16">
-<h3>4.9.2 使用getline从一个文件来<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>4.9.2 使用getline从一个文件来<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="nv">$1</span> <span class="o">==</span> <span class="m">10</span><span class="o">)</span> <span class="o">{</span>
         getline &lt; <span class="s2">&quot;secondary.input&quot;</span>

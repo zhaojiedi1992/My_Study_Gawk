@@ -98,6 +98,13 @@ awk是支持正则表达式的。
     [root@centos74 test]$ echo "Abc" |awk 'BEGIN{IGNORECASE =1 } $0 ~ "ab" {print $0}'
     Abc
 
+tolower是内置的函数，IGNORECASE是内置的变量。
+
+3.8 更多关于正则表达式的。 
+
+正则表达式是在各个语言都有的。 基本都是满足posix标准的。 学习一个语言，再去学习其他的也是快速上手的。 详细的正则表达式可以参考wifi上的。 
 
 
+学习regex_.
 
+..  _学习regex: https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended
