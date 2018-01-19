@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'My_Study_Gawk'
-copyright = '2017, zhaojiedi1992'
+copyright = '2017, zhaojiedi1992@outlook.com'
 author = 'zhaojiedi1992'
 
 # The version info for the project you're documenting, acts as replacement for
