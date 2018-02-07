@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6 表达式 &mdash; My_Study_Gawk v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="My_Study_Gawk v0.1 documentation" href="../index.html"/>
+        <link rel="next" title="7 模式动作和变量" href="模式动作和变量.html"/>
+        <link rel="prev" title="5 打印输出" href="打印输出.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> My_Study_Gawk
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">awk语言</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="简介.html">1 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="运行awk.html">2 运行awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="正则表达式.html">3 正则表达式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="读取输入文件.html">4 读取输入文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="打印输出.html">5 打印输出</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6 表达式</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">6.1 常量表达式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.1.1 数字和字符串常量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.1.2 正则表达式常量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">6.1.3 自定义的变量</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">6.2 使用表示式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">6.2.1 算数操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">6.2.2 字符串操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">6.2.3 赋值表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">6.2.4 自增表达式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">6.3 判定表达式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">6.3.1 字符串和数值的判定表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">6.3.2 比较判定表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">6.3.3 三目表达式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">6.4 函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="模式动作和变量.html">7 模式动作和变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="数组.html">8 数组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="函数.html">9 函数</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">My_Study_Gawk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>6 表达式</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/awk语言/表达式.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>6 表达式<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>6.1 常量表达式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>6.1.1 数字和字符串常量<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="m">105</span>
+<span class="s2">&quot;abc&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>6.1.2 正则表达式常量<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="nv">$0</span> ~ /barfly/ <span class="o">||</span> <span class="nv">$0</span> ~ /camelot/<span class="o">)</span>
+    print <span class="s2">&quot;found&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>6.1.3 自定义的变量<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>awk作为一个编程语言，变量的支持那是必须的啊。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk -v <span class="nv">a</span><span class="o">=</span><span class="s2">&quot;test&quot;</span> <span class="s1">&#39;BEGIN{print a}&#39;</span>
+<span class="nb">test</span>
+</pre></div>
+</div>
+<p>自定的变量可以使用命令行方式， 也是可以在BEGIN里面去定义。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>6.2 使用表示式<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>6.2.1 算数操作<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>awk对算数的支持也是非常完美的</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ vim grades
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ cat grades
+Pat   <span class="m">100</span> <span class="m">97</span> <span class="m">58</span>
+Sandy  <span class="m">84</span> <span class="m">72</span> <span class="m">93</span>
+Chris  <span class="m">72</span> <span class="m">92</span> <span class="m">89</span>
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;{sum=$2+$3+$3; avg=sum/3; print $1,avg}&#39;</span> grades
+Pat <span class="m">98</span>
+Sandy <span class="m">76</span>
+Chris <span class="m">85</span>.3333
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>6.2.2 字符串操作<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>字符串主要是拼接， 直接写你要拼接的字符串即可。类似bash，不像python语言字符串连接需要连接符就“+” 。</p>
+</div>
+<div class="section" id="id9">
+<h3>6.2.3 赋值表达式<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>赋值是比较简单的 a=”abd” 即可。</p>
+</div>
+<div class="section" id="id10">
+<h3>6.2.4 自增表达式<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>这个用法和c语言是一样的。使用’b++’即可完成b变量的自增，</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>6.3 判定表达式<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h3>6.3.1 字符串和数值的判定表达式<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>awk中对真假的判定是这样的。 数值类如果是0 就是False, 非0就是True。字符串类如果是没有设置的话就是False,其他为True。</p>
+</div>
+<div class="section" id="id13">
+<h3>6.3.2 比较判定表达式<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>就是常用大于等于小于这些判定</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">在字符串比较的时候，是按照首字母比较的，如果相同继续比较下一个字母，而非字母长度比较。</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>6.3.3 三目表达式<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>直接给样例</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;BEGIN{a=-1;b= a &lt;=0 ?(++a):a; print b}&#39;</span>
+<span class="m">0</span>
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;BEGIN{a=1;b= a &lt;=0 ?(++a):a; print b}&#39;</span>
+<span class="m">1</span>
+</pre></div>
+</div>
+<p>如果添加成立，就执行第一个语句，否则第二个。 三目表达式本质是一个ifelse语句的简单写法。</p>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>6.4 函数<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<p>awk 内置一些常用函数，比如计算字符串长度（length）,去平方根的函数（sqrt）等等。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="模式动作和变量.html" class="btn btn-neutral float-right" title="7 模式动作和变量" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="打印输出.html" class="btn btn-neutral" title="5 打印输出" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, zhaojiedi1992@outlook.com.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

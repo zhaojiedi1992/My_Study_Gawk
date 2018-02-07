@@ -1,0 +1,272 @@
+7 模式动作和变量
+================================
+
+7.1 模式元素
+-------------------------------
+
+模式元素主要有如下几种：
+
+.. code-block:: text
+
+    /regular expression/        一个正则表达式
+    expression                  一个单表达式
+    begpat,endpat               逗号分割的2个模式
+
+    BEGIN                       开始模式
+    END                         结束模式
+    BEGINFILE                   数据预处理
+    ENDFILE                     数据后处理操作
+    empty                       空，默认匹配所有行
+
+7.1.1 正则表达式作为模式
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: bash
+
+    /foo|bar|baz/  { buzzwords++ }
+    END            { print buzzwords, "buzzwords seen" }
+
+7.1.2 算数表达式作为模式
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: bash
+
+    awk '$1 == "li" { print $2 }' mail-list
+
+7.1.3 BEGINFILE和ENDFILE
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+这2个模式算是awk提供的钩子函数吧 ， BEGINFILE在我们处理文件之前执行， 我们可以在这个模式内部写判断文件权限， 预处理数据工作，ENDFILE这个模式在我们处理完毕文件的时候执行，可以完成后续的工作，比如我们生成一个脚本文件，可以在这里设置后续权限问题的。
+
+7.2 使用SHELL变量
+------------------------------------
+
+shell的变量和awk的变量是不一样的。想在awk中使用shell的变量可以考虑如下方法： 
+
+.. code-block:: bash
+
+    [root@centos74 test]$ var1="abc"
+    [root@centos74 test]$ awk -v var1=$var1 'BEGIN{print var1}'
+    abc
+
+7.3 动作
+-----------------------------
+
+通常情况下匹配一个模式，都要采取对应的动作。默认的动作是打印。
+
+7.4 控制语句
+----------------------------------------
+
+控制语句是动作的一种。awk中的控制和c基本一样。使用起来也是非常方便的。
+
+
+7.4.1 if
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例：
+
+.. code-block:: bash
+
+    if (x % 2 == 0)
+        print "x is even"
+    else
+        print "x is odd"
+
+7.4.1 while
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例： 
+
+.. code-block:: bash
+
+    awk '
+    {
+        i = 1
+        while (i <= 3) {
+            print $i
+            i++
+        }
+    }' inventory-shipped
+
+7.4.1 do-while
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例： 
+
+.. code-block:: bash
+
+    {
+        i = 1
+        do {
+            print $0
+            i++
+        } while (i <= 10)
+    }
+
+7.4.1 for
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例1：
+
+.. code-block:: bash
+
+    awk '
+    {
+        for (i = 1; i <= 3; i++)
+            print $i
+    }' inventory-shipped
+
+样例2：
+
+.. code-block:: bash
+
+    for (i in array)
+        do something with array[i]
+
+7.4.1 switch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例： 
+
+.. code-block:: bash
+
+    while ((c = getopt(ARGC, ARGV, "aksx")) != -1) {
+        switch (c) {
+        case "a":
+            # report size of all files
+            all_files = TRUE;
+            break
+        case "k":
+            BLOCK_SIZE = 1024       # 1K block size
+            break
+        case "s":
+            # do sums only
+            sum_only = TRUE
+            break
+        case "x":
+            # don't cross filesystems
+            fts_flags = or(fts_flags, FTS_XDEV)
+            break
+        case "?":
+        default:
+            usage()
+            break
+        }
+    }
+
+7.4.1 break
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例：
+
+.. code-block:: bash
+
+    # find smallest divisor of num
+    {
+        num = $1
+        for (divisor = 2; divisor * divisor <= num; divisor++) {
+            if (num % divisor == 0)
+                break
+        }
+        if (num % divisor == 0)
+            printf "Smallest divisor of %d is %d\n", num, divisor
+        else
+            printf "%d is prime\n", num
+    }
+
+7.4.1 continue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例:
+
+.. code-block:: bash
+
+    BEGIN {
+        for (x = 0; x <= 20; x++) {
+            if (x == 5)
+                continue
+            printf "%d ", x
+        }
+        print ""
+    }
+
+7.4.1 next
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+next 这个用法在c中没有，这个的意思就是立即停止当前记录的处理，去处理下一个记录去。
+
+.. code-block:: bash
+
+    NF != 4 {
+        printf("%s:%d: skipped: NF != 4\n", FILENAME, FNR) > "/dev/stderr"
+        next
+    }
+
+7.4.1 nextfile
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+这个和next类似。 只不过next是去处理下一个记录。 nextfile是出去下一个文件。
+
+7.4.1 exit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+这个语句设定退出码的。
+
+样例:
+
+.. code-block:: bash
+
+    BEGIN {
+        if (("date" | getline date_now) <= 0) {
+            print "Can't get system date" > "/dev/stderr"
+            exit 1
+        }
+        print "current date is", date_now
+        close("date")
+    }
+
+7.5 预定义的变量
+-------------------------------------------------
+
+7.5.1 内建控制变量
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    FIELDWIDTHS             各个字段的宽度
+    FPAT                    各个字段的模式
+    FS                      字段分隔符
+    IGNORECASE              是否忽略大小写，默认是是大小写敏感的
+    OFS                     输出字段分隔符
+    ORS                     输出记录分隔符
+    RS                      记录分隔符，默认是行，就是一行几个记录
+
+
+7.5.2 内建传递变量
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    ARGV        命令行参数
+    ARGC        命令行参数个数
+    ERRNO       错误号
+    FILENAME    当前的文件名
+    FNR         当前的文件记录号
+    NF          当前记录的字段个数
+    NR          当前记录数
+    PROCINFO    这个是一个数组，存储一些进程信息。
+
+7.5.3 使用ARGC和ARGV
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例：
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk 'BEGIN {
+    for ( i=0; i<ARGC;i++)
+    print ARGV[i]
+    }' inventory-shipped mail-list
+    awk
+    inventory-shipped
+    mail-list
+
+.. attention:: 我们的语句不是参数。第一个参数是awk命令本身的。

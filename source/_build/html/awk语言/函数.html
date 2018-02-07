@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9 函数 &mdash; My_Study_Gawk v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="My_Study_Gawk v0.1 documentation" href="../index.html"/>
+        <link rel="prev" title="8 数组" href="数组.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> My_Study_Gawk
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">awk语言</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="简介.html">1 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="运行awk.html">2 运行awk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="正则表达式.html">3 正则表达式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="读取输入文件.html">4 读取输入文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="打印输出.html">5 打印输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="表达式.html">6 表达式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="模式动作和变量.html">7 模式动作和变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="数组.html">8 数组</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9 函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">9.1 内建函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">9.1.1 调用函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">9.1.2 数字函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">9.1.2 字符串函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">9.1.3 输入输出函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">9.1.3 时间函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">9.1.4 位操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">9.1.5 获取类型</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">9.2 用户自定义函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">9.2.1 自定义函数样例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">9.2.2 间接函数样例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">My_Study_Gawk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>9 函数</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/awk语言/函数.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>9 函数<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>9.1 内建函数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>9.1.1 调用函数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>样例：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">i</span> <span class="o">=</span> <span class="m">4</span>
+<span class="nv">j</span> <span class="o">=</span> sqrt<span class="o">(</span>i++<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>9.1.2 数字函数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>函数：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>atan2<span class="o">(</span>y,x<span class="o">)</span>
+cos<span class="o">(</span>x<span class="o">)</span>
+exp<span class="o">(</span>x<span class="o">)</span>
+int<span class="o">(</span>x<span class="o">)</span>
+log<span class="o">(</span>x<span class="o">)</span>
+rand<span class="o">()</span>
+sin<span class="o">(</span>x<span class="o">)</span>
+sqrt<span class="o">(</span>x<span class="o">)</span>
+srand<span class="o">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>9.1.2 字符串函数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><strong>asort(source [, dest [, how ] ] 和asorti(source [, dest [, how ]</strong></p>
+<p>样例：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>a<span class="o">[</span><span class="s2">&quot;last&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;de&quot;</span>
+a<span class="o">[</span><span class="s2">&quot;first&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;sac&quot;</span>
+a<span class="o">[</span><span class="s2">&quot;middle&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;cul&quot;</span>
+
+<span class="c1"># asort(a)a的结果会如下</span>
+a<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;cul&quot;</span>
+a<span class="o">[</span><span class="m">2</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;de&quot;</span>
+a<span class="o">[</span><span class="m">3</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;sac&quot;</span>
+<span class="c1"># asorti(a)的结果会如下</span>
+a<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;first&quot;</span>
+a<span class="o">[</span><span class="m">2</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;last&quot;</span>
+a<span class="o">[</span><span class="m">3</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;middle&quot;</span>
+<span class="c1"># 一个是根据值生成的，一个是根据索引生成的。</span>
+</pre></div>
+</div>
+<p><strong>gsub(regexp, replacement [, target])</strong></p>
+<p>样例：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;abcabc&quot;</span> <span class="p">|</span>awk <span class="s1">&#39;{gsub(/a/,&quot;A&quot;);print $0}&#39;</span>
+AbcAbc
+</pre></div>
+</div>
+<p><strong>index(in, find)</strong></p>
+<p>样例：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;BEGIN { print index(&quot;peanut&quot;, &quot;an&quot;) }&#39;</span>
+<span class="m">3</span>
+</pre></div>
+</div>
+<p><strong>length([string])</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;BEGIN { a=&quot;abcd&quot; ; print length(a) }&#39;</span>
+<span class="m">4</span>
+</pre></div>
+</div>
+<p><strong>split(string, array [, fieldsep [, seps ] ])</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>split<span class="o">(</span><span class="s2">&quot;cul-de-sac&quot;</span>, a, <span class="s2">&quot;-&quot;</span>, seps<span class="o">)</span>
+<span class="c1">#得到的结果如下</span>
+a<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;cul&quot;</span>
+a<span class="o">[</span><span class="m">2</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;de&quot;</span>
+a<span class="o">[</span><span class="m">3</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;sac&quot;</span>
+</pre></div>
+</div>
+<p><strong>strtonum(str)</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk <span class="s1">&#39;BEGIN { a=&quot;11&quot; ; print strtonum(a) }&#39;</span>
+<span class="m">11</span>
+</pre></div>
+</div>
+<p><strong>sub(regexp, replacement [, target])</strong></p>
+<p>这个和gsub差不多。 只是这个只替换一次。gsub替换所有。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&quot;abcabc&quot;</span> <span class="p">|</span>awk <span class="s1">&#39;{sub(/a/,&quot;A&quot;);print $0}&#39;</span>
+Abcabc
+</pre></div>
+</div>
+<p><strong>substr(string, start [, length ])</strong></p>
+<p>这个就是提取字字符串的。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ awk -v <span class="nv">a</span><span class="o">=</span><span class="s2">&quot;abcdef&quot;</span> <span class="s1">&#39;BEGIN{b =substr(a,2,2) ; print b}&#39;</span>
+bc
+</pre></div>
+</div>
+<p><strong>tolower(string)和toupper(string)</strong></p>
+<p>这个就是转化大小写的</p>
+</div>
+<div class="section" id="id6">
+<h3>9.1.3 输入输出函数<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><strong>close(filename [, how])</strong></p>
+<p>关闭文件</p>
+<p><strong>fflush([filename])</strong></p>
+<p>把缓冲区的输出写入文件去</p>
+<p><strong>system(command)</strong></p>
+<p>执行系统命令</p>
+<p>样例：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>END <span class="o">{</span>
+    system<span class="o">(</span><span class="s2">&quot;date | mail -s &#39;awk run done&#39; root&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>9.1.3 时间函数<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><strong>strftime([format [, timestamp [, utc-flag] ] ])</strong></p>
+<p>这个方法和python的date类的方法相似</p>
+<p>格式也是比较多。具体参考 <a class="reference external" href="http://www.gnu.org/software/gawk/manual/gawk.html#Time-Functions">gawk</a>.</p>
+<p><strong>systime()</strong></p>
+<p>获取当前时间</p>
+</div>
+<div class="section" id="id8">
+<h3>9.1.4 位操作<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><strong>and(v1, v2 [, …])</strong></p>
+<p><strong>compl(val)</strong></p>
+<p><strong>lshift(val, count)</strong></p>
+<p><strong>or(v1, v2 [, …])</strong></p>
+<p><strong>rshift(val, count)</strong></p>
+<p><strong>xor(v1, v2 [, …])</strong></p>
+</div>
+<div class="section" id="id9">
+<h3>9.1.5 获取类型<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><strong>isarray(x)</strong></p>
+<p><strong>typeof(x)</strong></p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>9.2 用户自定义函数<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>9.2.1 自定义函数样例<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">function</span> myprint<span class="o">(</span>num<span class="o">)</span>
+<span class="o">{</span>
+    <span class="nb">printf</span> <span class="s2">&quot;%6.3g\n&quot;</span>, num
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>定义函数可以在BEGIN里面定义的。 当然写到一个文件也是可以的。</p>
+</div>
+<div class="section" id="id12">
+<h3>9.2.2 间接函数样例<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">the_func</span> <span class="o">=</span> <span class="s2">&quot;sum&quot;</span>
+<span class="nv">result</span> <span class="o">=</span> @the_func<span class="o">()</span>   <span class="c1"># calls the sum() function</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="数组.html" class="btn btn-neutral" title="8 数组" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, zhaojiedi1992@outlook.com.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

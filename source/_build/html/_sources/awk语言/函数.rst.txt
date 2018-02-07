@@ -1,0 +1,203 @@
+9 函数
+====================================
+
+9.1 内建函数
+-----------------------------------------
+
+9.1.1 调用函数
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例：
+
+.. code-block:: bash
+
+    i = 4
+    j = sqrt(i++)
+
+9.1.2 数字函数
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+函数：
+
+.. code-block:: bash
+
+    atan2(y,x)
+    cos(x)
+    exp(x)
+    int(x)
+    log(x)
+    rand()
+    sin(x)
+    sqrt(x)
+    srand()
+
+9.1.2 字符串函数
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**asort(source [, dest [, how ] ] 和asorti(source [, dest [, how ]**
+
+样例：
+
+.. code-block:: bash
+
+    a["last"] = "de"
+    a["first"] = "sac"
+    a["middle"] = "cul"
+
+    # asort(a)a的结果会如下
+    a[1] = "cul"
+    a[2] = "de"
+    a[3] = "sac"
+    # asorti(a)的结果会如下
+    a[1] = "first"
+    a[2] = "last"
+    a[3] = "middle"
+    # 一个是根据值生成的，一个是根据索引生成的。
+  
+**gsub(regexp, replacement [, target])**
+
+样例：
+
+.. code-block:: bash
+
+    [root@centos74 test]$ echo "abcabc" |awk '{gsub(/a/,"A");print $0}'
+    AbcAbc
+
+**index(in, find)**
+
+样例：
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk 'BEGIN { print index("peanut", "an") }'
+    3
+
+**length([string])**
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk 'BEGIN { a="abcd" ; print length(a) }'
+    4
+
+**split(string, array [, fieldsep [, seps ] ])**
+
+.. code-block:: bash
+
+    split("cul-de-sac", a, "-", seps)
+    #得到的结果如下
+    a[1] = "cul"
+    a[2] = "de"
+    a[3] = "sac"
+
+
+**strtonum(str)** 
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk 'BEGIN { a="11" ; print strtonum(a) }'
+    11
+
+**sub(regexp, replacement [, target])**
+
+这个和gsub差不多。 只是这个只替换一次。gsub替换所有。
+
+.. code-block:: bash
+
+    [root@centos74 test]$ echo "abcabc" |awk '{sub(/a/,"A");print $0}'
+    Abcabc
+
+**substr(string, start [, length ])** 
+
+这个就是提取字字符串的。
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk -v a="abcdef" 'BEGIN{b =substr(a,2,2) ; print b}'
+    bc
+
+**tolower(string)和toupper(string)**
+
+这个就是转化大小写的
+
+9.1.3 输入输出函数
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**close(filename [, how])**
+
+关闭文件
+
+**fflush([filename])**
+
+把缓冲区的输出写入文件去
+
+**system(command)**
+
+执行系统命令
+
+样例： 
+
+.. code-block:: bash
+
+    END {
+        system("date | mail -s 'awk run done' root")
+    }
+
+9.1.3 时间函数
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**strftime([format [, timestamp [, utc-flag] ] ])**
+
+这个方法和python的date类的方法相似
+
+格式也是比较多。具体参考 gawk_.
+
+..  _gawk : http://www.gnu.org/software/gawk/manual/gawk.html#Time-Functions
+
+**systime()** 
+
+获取当前时间
+
+9.1.4 位操作
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**and(v1, v2 [, …])**
+
+**compl(val)**
+
+**lshift(val, count)**
+
+**or(v1, v2 [, …])**
+
+**rshift(val, count)**
+
+**xor(v1, v2 [, …])**
+
+9.1.5 获取类型
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**isarray(x)**
+
+**typeof(x)**
+
+9.2 用户自定义函数
+--------------------------------------------------
+
+9.2.1 自定义函数样例
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    function myprint(num)
+    {
+        printf "%6.3g\n", num
+    }
+
+定义函数可以在BEGIN里面定义的。 当然写到一个文件也是可以的。
+
+9.2.2 间接函数样例
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    the_func = "sum"
+    result = @the_func()   # calls the sum() function

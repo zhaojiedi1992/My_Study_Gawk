@@ -1,0 +1,154 @@
+8 数组
+=====================================
+
+8.1 数组的基本概念
+--------------------------------
+
+简单的说数组就是一组数据的集合而已。使用起来比多个变量更方便，更快捷。
+
+.. attention:: awk中的数组是引用数组。 可以理解为其他语言的字典吧。
+
+8.1.1 引用数组元素
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+引用数组元素需要写对应的索引的。如下：
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk 'BEGIN{a["d1"]="d1"; a["d2"]="d2" ; print a["d1"]}'
+    d1
+
+判定一个索引是否存在
+
+.. code-block:: bash
+
+    [root@centos74 test]$ awk 'BEGIN{a["d1"]="d1"; a["d2"]="d2" ; print "d1" in a, "d3" in a }'
+    1 0
+
+8.1.2 给数组赋值
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+样例： 
+
+.. code-block:: bash
+
+    arr["key"]=value
+    
+
+8.1.3 数组的基本使用
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+样例：
+
+.. code-block:: bash
+
+    {
+        if ($1 > max)
+            max = $1
+        arr[$1] = $0
+    }
+
+    END {
+        for (x = 1; x <= max; x++)
+            print arr[x]
+    }
+
+8.1.4 数组的遍历
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+样例:
+
+.. code-block:: bash
+
+    BEGIN {
+        a["here"] = "here"
+        a["is"] = "is"
+        a["a"] = "a"
+        a["loop"] = "loop"
+        for (i in a) {
+            j++
+            a[j] = j
+            print i
+        }
+    }
+
+8.1.4 数组的遍历扩展
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+默认数组的遍历是没有排序的，也就是先设置的先遍历。
+
+内置的一些排序方法如下：
+
+.. code-block:: text
+
+    @unsorted           默认的  
+    @ind_str_asc        索引字符串升序
+    @ind_num_asc        索引数字升序
+    @val_type_asc       值类型升序
+    @val_str_asc        值str升序
+    @val_num_asc        值数字升序
+    @ind_str_desc       索引字符串降序
+    @ind_num_desc       索引数字降序
+    @val_type_desc      值类型降序
+    @val_str_desc       值字符串降序
+    @val_num_desc       值数字降序
+
+样例：
+
+.. code-block:: bash
+
+    $ gawk '
+    > BEGIN {
+    >    a[4] = 4
+    >    a[3] = 3
+    >    for (i in a)
+    >        print i, a[i]
+    > }'
+    -| 4 4
+    -| 3 3
+    $ gawk '
+    > BEGIN {
+    >    PROCINFO["sorted_in"] = "@ind_str_asc"
+    >    a[4] = 4
+    >    a[3] = 3
+    >    for (i in a)
+    >        print i, a[i]
+    > }'
+    -| 3 3
+    -| 4 4
+
+8.3 删除数组
+------------------------------------------------------
+
+一个一个去删除： 
+
+.. code-block:: bash
+
+    for (i in frequencies)
+        delete frequencies[i]
+
+一次清空：
+
+.. code-block:: bash
+
+    delete frequencies
+
+8.3 多维数组
+------------------------------------------------------
+
+8.4 数组中数组
+----------------------------------------
+
+这个是比较好理解的。 数组的元素还是一个数组。
+
+具体样例如下：
+
+.. code-block:: bash
+
+    arrar[1][1]=11
+    array[1]2]=12
+    array[2][1]=21
+    array[2][2]=22
+    
+    for (i in array)
+        for (j in array[i])
+            print array[i][j]
+
